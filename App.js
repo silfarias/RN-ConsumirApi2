@@ -1,19 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { PaperProvider } from 'react-native-paper';
 import MyTabs from "./src/navigator/Navigator";
 
 
-function App () {
+export default function App () {
   return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  )
-}
-
-
-export default function Main() {
-  return (
-    <App />
+    <PaperProvider>
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
+    </PaperProvider>
   )
 }
 

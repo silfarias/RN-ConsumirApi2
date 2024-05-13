@@ -1,11 +1,20 @@
-import { useState, useEffect } from "react";
-import { View, Text, StatusBar, StyleSheet, ImageBackground } from "react-native";
+import React, { useEffect } from "react";
+import { View, ImageBackground, StyleSheet, FlatList, TouchableOpacity, Image, Text } from "react-native";
 import { Button } from 'react-native-paper';
 import { Appbar } from 'react-native-paper';
+import { LlamadaApi } from "../api/http";
 
 const image = require('../../assets/img/rickandmorty.jpg')
 
 export function HomeScreen({ navigation }) {
+
+  const { personajes, getPersonajes } = LlamadaApi();
+
+  const handleVerPersonajes = () => {
+    getPersonajes(); // Llamar¿ a la función para obtener personajes
+    navigation.navigate('ListaPersonajes'); // Navegar a la pantalla ListaPersonajes
+  };
+
   return (
     <>
       <Appbar.Header style={styles.header}>
@@ -14,13 +23,14 @@ export function HomeScreen({ navigation }) {
 
       <ImageBackground source={image}  resizeMode="cover" style={styles.image}>
         <View style={styles.container}>
-            <Button
-              mode="elevated"
-              buttonColor="#072e33"
-              textColor="#fff"
-              onPress={() => navigation.navigate('Settings')}>
-              Ver Lista de Personajes
-            </Button>
+          <Button
+            mode="elevated"
+            buttonColor="#072e33"
+            textColor="#fff"
+            onPress={handleVerPersonajes}
+          >
+            Ver Lista de Personajes
+          </Button>
         </View>
       </ImageBackground>
     </>
@@ -39,5 +49,5 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#0f968c',
-  }
+  },
 });

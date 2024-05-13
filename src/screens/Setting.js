@@ -1,20 +1,9 @@
-import { useState, useEffect } from "react";
-import { View, Text, Button, StatusBar, StyleSheet } from "react-native";
+import { View, Text, Button, StatusBar, StyleSheet, FlatList, ScrollView, TouchableOpacity, Image } from "react-native";
 
-
-export function SettingsScreen() {
+export function SettingsScreen({ navigation }) {
     return (
-        <View style={styles.container}>
-            <Text variant="headlineMedium">Settings!</Text>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Settings!</Text>
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
