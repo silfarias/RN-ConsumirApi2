@@ -89,10 +89,3 @@ export default function MyTabs() {
     </Tab.Navigator>
   );
 }
-
-
-const styles = StyleSheet.create({
-  navegador: {
-    backgroundColor: '#0f968c'
-  },
-});

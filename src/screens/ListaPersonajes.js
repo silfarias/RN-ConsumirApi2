@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { View, StyleSheet, FlatList, TouchableOpacity, Image, Text, ActivityIndicator } from "react-native";
+import { useEffect } from "react";
+import { View, StyleSheet, FlatList, TouchableOpacity, Image, Text} from "react-native";
 import { Appbar } from 'react-native-paper';
 import { LlamadaApi } from "../api/http";
 
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         alignItems: 'center',
+        borderWidth: 2,
+        borderColor: '#cccc',
     },
     image: {
         width: 100,

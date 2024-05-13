@@ -1,20 +1,14 @@
 import { View, ImageBackground, StyleSheet} from "react-native";
 import { Button } from 'react-native-paper';
 import { Appbar } from 'react-native-paper';
-import { LlamadaApi } from "../api/http";
-import { useEffect } from "react";
-
 
 const image = require('../../assets/img/rickandmorty.jpg')
 
 export function HomeScreen({ navigation }) {
 
-  const { personajes, getPersonajes } = LlamadaApi();
-
-  const handleVerPersonajes = () => useEffect(() => {
-      getPersonajes();
+  const handleVerPersonajes = () => {
       navigation.navigate('ListaPersonajes');
-  }, []);
+  }
 
   return (
     <>
