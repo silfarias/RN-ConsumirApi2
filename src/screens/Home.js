@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { View, ImageBackground, StyleSheet, FlatList, TouchableOpacity, Image, Text } from "react-native";
+import { View, ImageBackground, StyleSheet} from "react-native";
 import { Button } from 'react-native-paper';
 import { Appbar } from 'react-native-paper';
 import { LlamadaApi } from "../api/http";
+import { useEffect } from "react";
+
 
 const image = require('../../assets/img/rickandmorty.jpg')
 
@@ -10,10 +11,10 @@ export function HomeScreen({ navigation }) {
 
   const { personajes, getPersonajes } = LlamadaApi();
 
-  const handleVerPersonajes = () => {
-    navigation.navigate('ListaPersonajes');
-    getPersonajes();
-  };
+  const handleVerPersonajes = () => useEffect(() => {
+      getPersonajes();
+      navigation.navigate('ListaPersonajes');
+  }, []);
 
   return (
     <>
@@ -21,7 +22,7 @@ export function HomeScreen({ navigation }) {
         <Appbar.Content title="Consumo de Api" style={{alignItems: 'center'}} />
       </Appbar.Header>
 
-      <ImageBackground source={image}  resizeMode="cover" style={styles.image}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <View style={styles.container}>
           <Button
             mode="elevated"

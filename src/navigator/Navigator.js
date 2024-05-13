@@ -1,10 +1,12 @@
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { CommonActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, BottomNavigation } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 import { HomeScreen } from '../screens/Home';
 import { ListaPersonajes } from '../screens/ListaPersonajes';
 import { DetalleScreen} from '../screens/Detalle';
+import { FontAwesome6 } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
@@ -70,12 +72,20 @@ export default function MyTabs() {
         component={ListaPersonajes} 
         options={{
           tabBarLabel: 'Personajes',
-          tabBarIcon: ({ color, size }) => {
-            return <Icon name="cog" size={size} color={color} />;
+          tabBarIcon: () => {
+            return <FontAwesome6 name="users-line" size={24} color="black" />;
           },
         }}
       />
-      <Tab.Screen name="Detalle" component={DetalleScreen} />
+      <Tab.Screen 
+        name="Detalle" 
+        component={DetalleScreen}
+        options={{
+          tabBarLabel: 'Detalle',
+          tabBarIcon: () => {
+            return <FontAwesome5 name="user-secret" size={24} color="black" />;
+          },
+        }} />
     </Tab.Navigator>
   );
 }

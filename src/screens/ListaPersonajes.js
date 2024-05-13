@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { View, StyleSheet, FlatList, TouchableOpacity, Image, Text, ActivityIndicator } from "react-native";
 import { Appbar } from 'react-native-paper';
 import { LlamadaApi } from "../api/http";
@@ -17,7 +17,7 @@ export function ListaPersonajes({ navigation }) {
                 <Appbar.Content title="Lista de Personajes" />
             </Appbar.Header>
 
-            { personajes ? (
+            {personajes ? (
                 <FlatList
                     data={personajes}
                     keyExtractor={(item) => item.id.toString()}
@@ -32,11 +32,12 @@ export function ListaPersonajes({ navigation }) {
                     )}
                 />
             ) : (
-                <ActivityIndicator style={styles.loadingIndicator} size="large" color="#0f968c" />
+                <Text>Cargando Personajes...</Text>
             )}
         </>
     );
 }
+
 
 const styles = StyleSheet.create({
     header: {
