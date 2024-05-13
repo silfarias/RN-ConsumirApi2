@@ -5,7 +5,7 @@ export const LlamadaApi  = () => {
 
     const getPersonajes = async () => {
         try {
-            const response = await fetch('https://rickandmortyapi.com/api/character');
+            const response = await fetch('https://rickandmortyapi.com/api/character?limit=30');
             const data = await response.json();
             setPersonajes(data.results);
         } catch (error) {

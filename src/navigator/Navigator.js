@@ -3,8 +3,8 @@ import { CommonActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, BottomNavigation } from 'react-native-paper';
 import { HomeScreen } from '../screens/Home';
-import { SettingsScreen } from '../screens/Setting';
 import { ListaPersonajes } from '../screens/ListaPersonajes';
+import { DetalleScreen} from '../screens/Detalle';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
@@ -65,22 +65,17 @@ export default function MyTabs() {
           },
         }}
       />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
+      <Tab.Screen 
+        name="ListaPersonajes" 
+        component={ListaPersonajes} 
         options={{
-          tabBarLabel: 'Settings',
+          tabBarLabel: 'Personajes',
           tabBarIcon: ({ color, size }) => {
             return <Icon name="cog" size={size} color={color} />;
           },
         }}
       />
-      <Tab.Screen 
-        name="ListaPersonajes" 
-        component={ListaPersonajes} 
-        options={{ tabBarVisible: false }} 
-      />
-      {/* <Tab.Screen name="Detalle" component={DetallePersonaje} /> */}
+      <Tab.Screen name="Detalle" component={DetalleScreen} />
     </Tab.Navigator>
   );
 }

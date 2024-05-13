@@ -11,8 +11,8 @@ export function HomeScreen({ navigation }) {
   const { personajes, getPersonajes } = LlamadaApi();
 
   const handleVerPersonajes = () => {
-    getPersonajes(); // Llamar¿ a la función para obtener personajes
-    navigation.navigate('ListaPersonajes'); // Navegar a la pantalla ListaPersonajes
+    navigation.navigate('ListaPersonajes');
+    getPersonajes();
   };
 
   return (
@@ -27,7 +27,7 @@ export function HomeScreen({ navigation }) {
             mode="elevated"
             buttonColor="#072e33"
             textColor="#fff"
-            onPress={handleVerPersonajes}
+            onPress={() => handleVerPersonajes()}
           >
             Ver Lista de Personajes
           </Button>
